@@ -1,0 +1,39 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="p-5">
+    <h2 class="p-3 text-center">Tutti i comics</h2>
+    <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th>Titolo</th>
+            <th>Autore</th>
+            <th>immagine</th>
+            <th>Data Post</th>
+            <th>Contenuto Post</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach ($posts as $post)
+                <tr>
+                    <td><a href="{{ route('admin.posts.show',$post->id) }}">{{ $comic->title }}</a></td>
+                    <td>{{ $post->author }}</td>
+                    <td>{{ $post->thumb }}</td>
+                    <td>{{ $post->post_date }}</td>
+                    <td>{{ $post->post_content }}</td>
+                    <td>
+                      <div class="d-flex">
+                        <a href="#" class="btn btn-warning me-2">Edit</a>
+                        <form action="#" method="POST" class="delete-comic-form">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </div>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+      </table>
+</div>
+@endsection
