@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="p-5">
-    <h2 class="p-3 text-center">Tutti i comics</h2>
+<div class="container">
+    <h2 class="p-3 text-center">Tutti i post</h2>
     <table class="table table-striped table-dark">
         <thead>
           <tr>
@@ -16,7 +16,7 @@
         <tbody>
             @foreach ($posts as $post)
                 <tr>
-                    <td><a href="{{ route('admin.posts.show',$post->id) }}">{{ $comic->title }}</a></td>
+                    <td><a href="{{ route('admin.posts.show',$post->id) }}">{{ $post->title }}</a></td>
                     <td>{{ $post->author }}</td>
                     <td>{{ $post->thumb }}</td>
                     <td>{{ $post->post_date }}</td>
