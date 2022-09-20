@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Model\Post;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class PostController extends Controller
 {
     /**
@@ -60,7 +62,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('admin.posts.edit',compact('post'));
     }
 
     /**
@@ -72,7 +75,15 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $curr_post = $request->all();
+
+/*         $validatedData = $request->validate($this->validationRules,$this->customMessage) ; */
+
+        $post = Post::findOrFail($id);
+
+        $post->update($curr_post); // Facciamo il fill di post con i dati di curr_post
+
+        return redirect()->route('admin.posts.index')->with('update',$post->title); 
     }
 
     /**

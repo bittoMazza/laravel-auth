@@ -23,7 +23,7 @@
                     <td>{{ $post->post_content }}</td>
                     <td>
                       <div class="d-flex">
-                        <a href="#" class="btn btn-warning me-2">Edit</a>
+                        <a href="{{ route('admin.posts.edit',$post->id) }}" class="btn btn-warning me-2">Edit</a>
                         <form action="{{ route('admin.posts.destroy',$post->id) }}" method="POST" class="delete-comic-form">
                           @csrf
                           @method('DELETE')
