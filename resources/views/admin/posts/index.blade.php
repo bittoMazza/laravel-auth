@@ -24,7 +24,7 @@
                     <td>
                       <div class="d-flex">
                         <a href="#" class="btn btn-warning me-2">Edit</a>
-                        <form action="#" method="POST" class="delete-comic-form">
+                        <form action="{{ route('admin.posts.destroy',$post->id) }}" method="POST" class="delete-comic-form">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger">Delete</button>
