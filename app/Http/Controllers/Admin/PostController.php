@@ -36,7 +36,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $post = new Post();
+        return view('admin.posts.create',compact('post'));
     }
 
     /**
@@ -47,7 +48,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $validatedData = $request->validate($this->validationRules); 
+
+        $post = new Post();
+
+        $data['post_date'] = date('Y-m-d H:i:s');
+
+        $post->create($data); 
+
+        return redirect()->route('admin.posts.index');
     }
 
     /**

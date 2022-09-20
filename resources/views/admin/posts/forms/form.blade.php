@@ -42,4 +42,4 @@
 </div>
 @enderror
 
-<button type="submit" class="btn btn-primary my-3">Modifica Fumetto</button>
+<button type="submit" class="btn btn-primary my-3">Salva il post</button>

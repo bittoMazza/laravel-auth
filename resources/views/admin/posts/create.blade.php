@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 
 @section('content')
 <h2 class="text-center mt-2">Form per creazione post</h2>
