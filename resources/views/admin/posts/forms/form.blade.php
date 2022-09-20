@@ -9,6 +9,8 @@
 </div>
 @enderror
 
+@if ( $post->author == null )
+
 <div class="form-group">
     <label class="text-light">AUTORE</label>
     <input type="text" class="form-control" value="{{ old('author',$post->author) }}" name="author" placeholder="Inserire Autore" required>
@@ -19,6 +21,8 @@
     {{ $message }}
 </div>
 @enderror
+
+@endif
 
 <div class="form-group">
     <label class="text-light">CONTENUTO POST</label>
