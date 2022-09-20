@@ -10,6 +10,14 @@ use function GuzzleHttp\Promise\all;
 
 class PostController extends Controller
 {
+
+    protected $validationRules = [
+                    
+        'title' => 'required|min:5|max:255',
+        'author' => 'required|min:3',
+        'thumb' => 'required|url',
+        'post_content' => 'required|min:3|max:200'  
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -77,7 +85,7 @@ class PostController extends Controller
     {
         $curr_post = $request->all();
 
-/*         $validatedData = $request->validate($this->validationRules,$this->customMessage) ; */
+        $validatedData = $request->validate($this->validationRules); 
 
         $post = Post::findOrFail($id);
 
