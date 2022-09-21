@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\Category;
 use App\Model\Post;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
@@ -13,8 +14,11 @@ class PostsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        $categories = Category::all();
+
         for($i = 0;$i < 20;$i ++){
             $newPost = new Post();
+            $newPost->category_id = $faker->randomElement($categories)->id;
             $newPost->title = $faker->realText(35);
             $newPost->author = $faker->userName();
             $newPost->thumb = $faker->imageUrl();
