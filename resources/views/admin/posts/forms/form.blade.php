@@ -9,19 +9,6 @@
 </div>
 @enderror
 
-
-<div class="form-group">
-    <label class="text-light">AUTORE</label>
-    <input type="text" class="form-control" value="{{ old('author',$post->author) }}" name="author" placeholder="Inserire Autore" required>
-</div>
-
-@error('author')
-<div class="alert alert-warning">
-    {{ $message }}
-</div>
-@enderror
-
-
 <div class="form-group">
     <label class="text-light">CONTENUTO POST</label>
     <textarea class="form-control" name="post_content" cols="30" rows="5">{{ old('post_content',$post->post_content) }}</textarea>

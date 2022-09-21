@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="p-3 text-center">Tutti i post</h2>
+    <h2 class="p-3 text-center">Tutti i post di </h2>
     @if ( session('delete'))
       <div class="alert alert-warning m-3">
         {{ session('delete') }} è stato rimosso con successo
