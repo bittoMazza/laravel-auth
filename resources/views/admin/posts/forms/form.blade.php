@@ -9,7 +9,6 @@
 </div>
 @enderror
 
-@if ( $post->author == null )
 
 <div class="form-group">
     <label class="text-light">AUTORE</label>
@@ -22,7 +21,6 @@
 </div>
 @enderror
 
-@endif
 
 <div class="form-group">
     <label class="text-light">CONTENUTO POST</label>

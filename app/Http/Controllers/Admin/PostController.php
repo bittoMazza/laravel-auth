@@ -99,7 +99,7 @@ class PostController extends Controller
         $validatedData = $request->validate($this->validationRules); 
 
         $post = Post::findOrFail($id);
-
+        
         $post->update($curr_post); // Facciamo il fill di post con i dati di curr_post
 
         return redirect()->route('admin.posts.index')->with('update',$post->title); 
